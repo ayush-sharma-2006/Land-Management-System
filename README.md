@@ -1,58 +1,100 @@
-# Salesforce DX Project
+Land Management System
+A Salesforce-based application designed to organize land acquisition
+workflows and keep related records in one place. The project uses
+Salesforce custom objects, Lightning pages, Screen Flows, and Lightning
+Web Components (LWC) to support structured data entry and management.
+Project Overview
+Land acquisition involves multiple related records, documents,
+compensation details, and grievances. This project aims to make those
+records easier to manage inside Salesforce by organizing information
+into dedicated objects and guided workflows.
+Key Modules
+- Acquisition Case --- manage land acquisition case records.
+- Land Document --- maintain documents associated with land
+  records or acquisition cases.
+- Compensation --- organize compensation-related information.
+- Grievances --- record and manage grievances related to the
+  process.
+- Screen Flows --- guide users through record creation and data
+  entry.
+- Lightning Web Components (LWC) --- provide custom user-interface
+  functionality where implemented.
+Note: Update this section if your final org uses different object
+names or includes additional modules.
 
-Salesforce DX is a development approach that brings source-driven development, team collaboration, and continuous integration to the Salesforce Platform. Instead of working directly in an org through a web browser, you work with metadata as source files in a local DX project, track changes in version control, and deploy through automated processes.
-
-This project template gets you started with the tools and structure you need to build Salesforce applications using source control, scratch orgs, and the Salesforce CLI.
-
-## Prerequisites
-
-Before you start, make sure you have:
-
-- **Salesforce CLI** - Download from [developer.salesforce.com/tools/salesforcecli](https://developer.salesforce.com/tools/salesforcecli). See [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) for details.
-- **VS Code with Salesforce Extension Pack** - See [Installation Instructions](https://developer.salesforce.com/docs/platform/sfvscode-extensions/guide/install.html) for details. Includes the Agentforce Vibes extension.
-- **A development org** - Sign up for a free Developer Edition org [here](https://developer.salesforce.com/signup).
-- **Dev Hub enabled** (optional, required to create scratch orgs) - You can enable Dev Hub in your development org under Setup > Dev Hub.  See [Provide Developers Access to Salesforce DX Tools](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_setup_dx_tools.htm).
-
-## Project Structure
-
-Your DX project follows this structure:
-
-- **`force-app/main/default/`** - Your metadata source files live in this default package directory. You can configure additional package directories in the `sfdx-project.json` file.
-- **`config/`** - Scratch org definitions and project settings
-- **`scripts/`** - Automation scripts for common tasks
-- **`sfdx-project.json`** - Project manifest that defines package directories, namespace, API version, and other project-level settings
-
-See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm).
-
-## Get Started
-
-Ready to start developing? The [Get Started with Salesforce DX](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_get_started_dx.htm) guide walks you through your first project, from creating a scratch org to creating a simple Apex class or LWC to deploying your code to a sandbox.
-
-## Common Salesforce CLI Commands
-
-Here are common CLI commands that you'll use the most:
-
-- `sf org login web`: Authorize an org
-- `sf org open`: Open your org in a browser
-- `sf org create scratch`: Create a scratch org
-- `sf project deploy start`: Deploy metadata to your org
-- `sf project retrieve start`: Retrieve metadata from your org
-- `sf template generate <artifact>`: Scaffold new components, such as Apex classes and triggers, LWC components, Lightning apps, and more
-- `sf apex <command>`: Run Apex tests, run anonymous Apex blocks, and view logs
-- `sf data <command>`: Work with test data
-- `sf alias <command>`: Manage org aliases
-- `sf config <command>`: Configure CLI settings
-
-## Use Agentforce Vibes to Build Lightning Apps
-
-Transform your ideas into custom Lightning apps that extend CRM workflows directly in Lightning Experience. Through natural conversations with Agentforce Vibes, implement custom objects and fields, complex business logic, and dynamic UI components. See [Build a Lightning App Using Agentforce Vibes](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/lexapp-overview.html).
-
-## Additional Resources
-
-- [Agentforce Vibes Developer Guide](https://developer.salesforce.com/docs/platform/einstein-for-devs/guide/einstein-overview.html)
-- [Salesforce CLI Installation Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/)
-- [Salesforce CLI Plugin Development Guide](https://developer.salesforce.com/docs/platform/salesforce-cli-plugin/guide/conceptual-overview.html)
-- [Salesforce VS Code Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-
+Built With
+- Salesforce Platform
+- Salesforce Custom Objects and Fields
+- Salesforce Flow Builder (Screen Flows)
+- Lightning Web Components (LWC), where applicable
+- Salesforce CLI
+- Visual Studio Code
+- Git and GitHub
+Repository Structure
+Land-Management-System/
+├── force-app/
+│   └── main/
+│       └── default/
+│           ├── applications/
+│           ├── classes/
+│           ├── flows/
+│           ├── layouts/
+│           ├── lwc/
+│           ├── objects/
+│           ├── permissionsets/
+│           ├── tabs/
+│           └── triggers/
+├── manifest/
+├── scripts/
+├── sfdx-project.json
+└── README.md
+The exact folders in force-app/main/default/ depend on which metadata
+types are included in the project.
+Setup and Deployment
+Prerequisites
+- A Salesforce org with permission to deploy metadata
+- Visual Studio Code
+- Salesforce Extension Pack
+- Salesforce CLI
+- Git
+1. Clone the repository
+git clone https://github.com/ayush-sharma-2006/Land-Management-System.git
+cd Land-Management-System
+2. Open the project
+Open the cloned folder in Visual Studio Code.
+3. Authorize a Salesforce org
+sf org login web --alias LandManagementOrg --instance-url https://login.salesforce.com
+For a sandbox, use https://test.salesforce.com as the instance URL.
+4. Deploy the project metadata
+sf project deploy start --source-dir force-app/main/default --target-org LandManagementOrg
+Replace LandManagementOrg with the alias of your authorized org.
+Review the deployment output and resolve any metadata dependencies or
+org-specific configuration issues.
+Typical Workflow
+1. Open the Salesforce app and navigate to the relevant records.
+2. Create or review an acquisition case.
+3. Add associated land-document details.
+4. Maintain compensation information as applicable.
+5. Record and follow up on grievances.
+6. Use the configured Screen Flows or custom components to enter data
+   where available.
+The workflow above is a high-level description; adjust it to match the
+actual configuration in your Salesforce org.
+Security Notes
+- Never commit Salesforce passwords, access tokens, refresh tokens,
+  private keys, or other secrets.
+- Keep local credentials and environment-specific configuration out of
+  version control.
+- Assign users only the Salesforce permissions they need.
+- Review sharing settings, object permissions, field-level security,
+  and Flow access before using the project with real data.
+Future Enhancements
+- Add role-based access and permission-set documentation.
+- Add validation rules and automated notifications where appropriate.
+- Improve search and filtering for acquisition cases and related
+  records.
+- Add screenshots or a short demo of the main workflows.
+- Add test coverage and deployment instructions for any Apex
+  components.
+Author
+Ayush Sharma
