@@ -1,0 +1,19 @@
+
+<template>
+    <lightning-card title="LAND OWNER">
+        <div class="slds-p-around_medium">
+            <lightning-button
+                label="Registration Land Owner"
+                variant="brand"
+                onclick={handleClick}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+
+    <template if:true={showFlow}>
+        <lightning-flow
+            flow-api-name="created_land_owner"
+            onstatuschange={handleStatusChange}>
+        </lightning-flow>
+    </template>
+</template>

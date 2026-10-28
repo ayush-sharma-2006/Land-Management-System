@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Department__c</fullName>
+    <label>Department</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Industrial Development</fullName>
+                <default>false</default>
+                <label>Industrial Development</label>
+            </value>
+            <value>
+                <fullName>National Highways</fullName>
+                <default>false</default>
+                <label>National Highways</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Power Department</fullName>
+                <default>false</default>
+                <label>Power Department</label>
+            </value>
+            <value>
+                <fullName>Public Works Department</fullName>
+                <default>false</default>
+                <label>Public Works Department</label>
+            </value>
+            <value>
+                <fullName>Railways</fullName>
+                <default>false</default>
+                <label>Railways</label>
+            </value>
+            <value>
+                <fullName>Urban Development</fullName>
+                <default>false</default>
+                <label>Urban Development</label>
+            </value>
+            <value>
+                <fullName>Water Resources</fullName>
+                <default>false</default>
+                <label>Water Resources</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,19 @@
+
+<template>
+    <lightning-card title="ACQUISITION CASE">
+        <div class="slds-p-around_medium">
+            <lightning-button
+                label="Register Acquisition Case"
+                variant="brand"
+                onclick={handleClick}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+
+    <template if:true={showFlow}>
+        <lightning-flow
+            flow-api-name="to_create_Acquisition_Case"
+            onstatuschange={handleStatusChange}>
+        </lightning-flow>
+    </template>
+</template>

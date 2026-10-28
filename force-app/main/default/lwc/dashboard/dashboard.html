@@ -1,0 +1,370 @@
+
+<template>
+    <div class="dashboard">
+
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="brand-icon">
+                    <lightning-icon
+                        icon-name="utility:world"
+                        size="large"
+                        alternative-text="Land Management">
+                    </lightning-icon>
+                </div>
+
+                <div class="header-text">
+                    <h1>National Land Acquisition System</h1>
+                    <p>Land Acquisition Monitoring & Decision Support</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <span class="system-status">
+                    <span class="status-dot"></span>
+                    System Active
+                </span>
+                <lightning-button-icon
+                    icon-name="utility:refresh"
+                    alternative-text="Refresh Dashboard"
+                    title="Refresh Dashboard"
+                    variant="border-filled"
+                    onclick={handleRefresh}>
+                </lightning-button-icon>
+            </div>
+        </header>
+
+        <!-- Welcome section -->
+        <section class="welcome-section">
+            <div>
+                <p class="eyebrow">ADMINISTRATION OVERVIEW</p>
+                <h2>Land Acquisition Dashboard</h2>
+                <p class="welcome-description">
+                    Monitor projects, land parcels, compensation and grievances
+                    from one central workspace.
+                </p>
+            </div>
+
+            <div class="date-badge">
+                <lightning-icon
+                    icon-name="utility:date_input"
+                    size="x-small"
+                    alternative-text="Date">
+                </lightning-icon>
+                <span>Project Overview</span>
+            </div>
+        </section>
+
+        <!-- KPI Cards -->
+        <section class="kpi-grid">
+
+            <article class="kpi-card blue-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Total Projects</span>
+                    <div class="kpi-icon blue-icon">
+                        <lightning-icon
+                            icon-name="utility:apps"
+                            size="small"
+                            alternative-text="Projects">
+                        </lightning-icon>
+                    </div>
+                </div>
+                <div class="kpi-value">24</div>
+                <p class="kpi-note">Registered acquisition projects</p>
+            </article>
+
+            <article class="kpi-card purple-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Total Land Parcels</span>
+                    <div class="kpi-icon purple-icon">
+                        <lightning-icon
+                            icon-name="utility:location"
+                            size="small"
+                            alternative-text="Land Parcels">
+                        </lightning-icon>
+                    </div>
+                </div>
+                <div class="kpi-value">1,250</div>
+                <p class="kpi-note">Identified parcels</p>
+            </article>
+
+            <article class="kpi-card green-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Acquired Parcels</span>
+                    <div class="kpi-icon green-icon">
+                        <lightning-icon
+                            icon-name="utility:check"
+                            size="small"
+                            alternative-text="Acquired">
+                        </lightning-icon>
+                    </div>
+                </div>
+                <div class="kpi-value">820</div>
+                <p class="kpi-note">Successfully acquired</p>
+            </article>
+
+            <article class="kpi-card orange-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Pending Cases</span>
+                    <div class="kpi-icon orange-icon">
+                        <lightning-icon
+                            icon-name="utility:clock"
+                            size="small"
+                            alternative-text="Pending Cases">
+                        </lightning-icon>
+                    </div>
+                </div>
+                <div class="kpi-value">186</div>
+                <p class="kpi-note">Awaiting further action</p>
+            </article>
+
+            <article class="kpi-card teal-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Pending Compensation</span>
+                    <div class="kpi-icon teal-icon">
+                        <lightning-icon
+                            icon-name="utility:money"
+                            size="small"
+                            alternative-text="Compensation">
+                        </lightning-icon>
+                    </div>
+                </div>
+                <div class="kpi-value">₹2.4 Cr</div>
+                <p class="kpi-note">Illustrative pending amount</p>
+            </article>
+
+            <article class="kpi-card red-card">
+                <div class="kpi-top">
+                    <span class="kpi-label">Critical Grievances</span>
+                    <div class="kpi-icon red-icon">
+                        <lightning-icon
+                            icon-name="utility:warning"
+                            size="small"
+                            alternative-text="Critical Grievances">
+                        </lightning-icon>
+                    </div>
+                </div>
+                <div class="kpi-value">12</div>
+                <p class="kpi-note">Require urgent attention</p>
+            </article>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content-grid">
+
+            <!-- Project progress -->
+            <article class="panel progress-panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Acquisition Progress</h3>
+                        <p>Overall parcel acquisition status</p>
+                    </div>
+                    <span class="panel-icon">
+                        <lightning-icon
+                            icon-name="utility:chart"
+                            size="small"
+                            alternative-text="Progress">
+                        </lightning-icon>
+                    </span>
+                </div>
+
+                <div class="progress-summary">
+                    <div>
+                        <span class="progress-number">65.6%</span>
+                        <p>Parcels acquired</p>
+                    </div>
+                    <span class="progress-total">820 / 1,250</span>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 65.6%"></div>
+                </div>
+
+                <div class="legend-list">
+                    <div class="legend-row">
+                        <span class="legend-label">
+                            <span class="legend-dot acquired-dot"></span>
+                            Acquired
+                        </span>
+                        <strong>820</strong>
+                    </div>
+                    <div class="legend-row">
+                        <span class="legend-label">
+                            <span class="legend-dot pending-dot"></span>
+                            Pending / In Progress
+                        </span>
+                        <strong>310</strong>
+                    </div>
+                    <div class="legend-row">
+                        <span class="legend-label">
+                            <span class="legend-dot disputed-dot"></span>
+                            Disputed
+                        </span>
+                        <strong>75</strong>
+                    </div>
+                    <div class="legend-row">
+                        <span class="legend-label">
+                            <span class="legend-dot other-dot"></span>
+                            Other / Rejected
+                        </span>
+                        <strong>45</strong>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Acquisition workflow -->
+            <article class="panel workflow-panel">
+                <div class="panel-header">
+                    <div>
+                        <h3>Acquisition Workflow</h3>
+                        <p>Monitor the case lifecycle</p>
+                    </div>
+                    <span class="panel-icon">
+                        <lightning-icon
+                            icon-name="utility:flow"
+                            size="small"
+                            alternative-text="Workflow">
+                        </lightning-icon>
+                    </span>
+                </div>
+
+                <div class="workflow-list">
+                    <div class="workflow-item">
+                        <div class="workflow-icon identification">
+                            <lightning-icon icon-name="utility:search"
+                                size="x-small"
+                                alternative-text="Identification">
+                            </lightning-icon>
+                        </div>
+                        <div class="workflow-details">
+                            <strong>Identification</strong>
+                            <span>Land parcels identified</span>
+                        </div>
+                        <span class="stage-count">120</span>
+                    </div>
+
+                    <div class="workflow-item">
+                        <div class="workflow-icon verification">
+                            <lightning-icon icon-name="utility:check"
+                                size="x-small"
+                                alternative-text="Verification">
+                            </lightning-icon>
+                        </div>
+                        <div class="workflow-details">
+                            <strong>Verification</strong>
+                            <span>Documents under review</span>
+                        </div>
+                        <span class="stage-count">86</span>
+                    </div>
+
+                    <div class="workflow-item">
+                        <div class="workflow-icon valuation">
+                            <lightning-icon icon-name="utility:money"
+                                size="x-small"
+                                alternative-text="Valuation">
+                            </lightning-icon>
+                        </div>
+                        <div class="workflow-details">
+                            <strong>Valuation</strong>
+                            <span>Land value assessment</span>
+                        </div>
+                        <span class="stage-count">54</span>
+                    </div>
+
+                    <div class="workflow-item">
+                        <div class="workflow-icon approval">
+                            <lightning-icon icon-name="utility:approval"
+                                size="x-small"
+                                alternative-text="Approval">
+                            </lightning-icon>
+                        </div>
+                        <div class="workflow-details">
+                            <strong>Approval</strong>
+                            <span>Awaiting authorization</span>
+                        </div>
+                        <span class="stage-count">38</span>
+                    </div>
+
+                    <div class="workflow-item">
+                        <div class="workflow-icon closure">
+                            <lightning-icon icon-name="utility:check"
+                                size="x-small"
+                                alternative-text="Closure">
+                            </lightning-icon>
+                        </div>
+                        <div class="workflow-details">
+                            <strong>Closure</strong>
+                            <span>Acquisition completed</span>
+                        </div>
+                        <span class="stage-count">820</span>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Recent cases -->
+        <section class="panel cases-panel">
+            <div class="panel-header cases-header">
+                <div>
+                    <h3>Recent Acquisition Cases</h3>
+                    <p>Latest cases requiring monitoring</p>
+                </div>
+                <lightning-button
+                    label="View All Cases"
+                    variant="neutral"
+                    onclick={handleViewCases}>
+                </lightning-button>
+            </div>
+
+            <div class="table-container">
+                <table class="cases-table">
+                    <thead>
+                        <tr>
+                            <th>CASE NUMBER</th>
+                            <th>PROJECT</th>
+                            <th>LAND PARCEL</th>
+                            <th>CURRENT STAGE</th>
+                            <th>RISK LEVEL</th>
+                            <th>CASE STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ACQ-0001</strong></td>
+                            <td>Bhopal-Indore Highway</td>
+                            <td>LP-0001</td>
+                            <td>Valuation</td>
+                            <td><span class="risk-badge medium">Medium</span></td>
+                            <td><span class="status-badge in-progress">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ACQ-0002</strong></td>
+                            <td>Railway Expansion</td>
+                            <td>LP-0002</td>
+                            <td>Verification</td>
+                            <td><span class="risk-badge high">High</span></td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>ACQ-0003</strong></td>
+                            <td>Industrial Corridor</td>
+                            <td>LP-0003</td>
+                            <td>Approval</td>
+                            <td><span class="risk-badge low">Low</span></td>
+                            <td><span class="status-badge approved">Approved</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <span>National Land Acquisition System</span>
+            <span>Administrative Monitoring Workspace</span>
+        </footer>
+
+    </div>
+</template>
